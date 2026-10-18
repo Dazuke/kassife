@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b32">
+  <title>KasKelas — Kas Kelas</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">K</span><span>KasKelas<small>TRANSPARANSI KAS KELAS</small></span></a>
+    <div class="top-actions">
+      <span id="periodLabel" class="period-pill">Periode —</span>
+      <button id="loginOpen" class="btn btn-light">Login bendahara</button>
+      <button id="logoutBtn" class="btn btn-light hidden">Keluar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LAPORAN KEUANGAN KELAS</p>
+        <h1>Kas kelas, lebih <span>terbuka.</span></h1>
+        <p class="hero-copy">Pantau saldo, pembayaran iuran, dan riwayat transaksi dalam satu tempat.</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">↗</div>
+    </section>
+
+    <section class="stats-grid" aria-label="Ringkasan kas">
+      <article class="stat-card stat-primary">
+        <span class="stat-label">Saldo kas saat ini</span>
+        <strong id="balanceValue">Rp0</strong>
+        <span class="stat-note">Saldo akhir periode terpilih</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Total pemasukan</span>
+        <strong id="incomeValue">Rp0</strong>
+        <span class="stat-note">Periode terpilih</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Total pengeluaran</span>
+        <strong id="expenseValue">Rp0</strong>
+        <span class="stat-note">Periode terpilih</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Pembayaran</span>
+        <strong id="paymentCount">0 / 0</strong>
+        <span id="paymentNote" class="stat-note">Siswa sudah membayar</span>
+      </article>
+    </section>
+
+    <section class="section-heading">
+      <div><p class="eyebrow">MONITORING</p><h2>Status pembayaran</h2></div>
+      <div class="filters">
+        <label class="sr-only" for="periodSelect">Pilih periode</label>
+        <select id="periodSelect" aria-label="Pilih periode"></select>
+        <button id="exportCsvBtn" class="btn btn-outline">Ekspor Excel (CSV)</button>
+        <button id="printBtn" class="btn btn-outline">Cetak / PDF</button>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <div><h3>Daftar siswa</h3><p>Data yang ditampilkan hanya informasi publik kelas.</p></div>
+          <span id="viewerBadge" class="role-badge">VIEWER</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nama siswa</th><th>Iuran</th><th>Status</th><th>Tanggal bayar</th></tr></thead>
+            <tbody id="studentsTable"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody>
+          </table>
+        </div>
+        <p id="dataMessage" class="data-message" role="status">Menghubungkan ke Firebase…</p>
+      </article>
+
+      <aside class="panel">
+        <div class="panel-heading"><div><h3>Riwayat transaksi</h3><p>Pemasukan dan pengeluaran bulan ini.</p></div></div>
+        <div id="transactionsList" class="transactions-list"><p class="empty">Memuat transaksi…</p></div>
+      </aside>
+    </section>
+
+    <section id="editorPanel" class="panel editor-panel hidden">
+      <div class="panel-heading"><div><p class="eyebrow">AREA BENDahara</p><h2>Kelola kas</h2><p>Perubahan diproses oleh Cloud Functions yang memeriksa izin editor.</p></div><span class="role-badge role-editor">EDITOR AKTIF</span></div>
+      <div class="forms-grid">
+        <form id="paymentForm" class="form-card">
+          <h3>Catat pembayaran</h3>
+          <label for="studentSelect">Siswa</label><select id="studentSelect" required></select>
+          <label for="paymentAmount">Nominal (Rp)</label><input id="paymentAmount" type="number" min="1" step="1" required>
+          <label for="paymentDate">Tanggal bayar</label><input id="paymentDate" type="date" required>
+          <button class="btn btn-primary" type="submit">Simpan pembayaran</button>
+        </form>
+        <form id="transactionForm" class="form-card">
+          <h3>Tambah transaksi</h3>
+          <label for="transactionType">Jenis transaksi</label><select id="transactionType"><option value="expense">Pengeluaran</option><option value="income">Pemasukan lain</option></select>
+          <label for="transactionAmount">Nominal (Rp)</label><input id="transactionAmount" type="number" min="1" step="1" required>
+          <label for="transactionDescription">Keterangan</label><input id="transactionDescription" type="text" maxlength="160" placeholder="Contoh: beli spidol" required>
+          <button class="btn btn-primary" type="submit">Simpan transaksi</button>
+        </form>
+      </div>
+      <p class="security-note">Keamanan: tombol editor hanya muncul setelah login, tetapi izin sebenarnya tetap ditegakkan di server dan Firestore Rules.</p>
+    </section>
+
+    <footer><span>KasKelas · Transparan dan tertib</span><span>Jangan masukkan data pribadi yang tidak diperlukan.</span></footer>
+  </main>
+
+  <dialog id="loginDialog" class="login-dialog">
+    <form id="loginForm" method="dialog">
+      <button id="loginClose" class="dialog-close" type="button" aria-label="Tutup">×</button>
+      <p class="eyebrow">AKSES TERBATAS</p><h2>Login bendahara</h2>
+      <p class="muted">Gunakan akun yang sudah dibuat oleh admin. Pendaftaran publik tidak tersedia.</p>
+      <label for="email">Email</label><input id="email" type="email" autocomplete="username" required>
+      <label for="password">Kata sandi</label><input id="password" type="password" autocomplete="current-password" required>
+      <button class="btn btn-primary full-width" type="submit">Login</button>
+      <p id="loginMessage" class="form-message" role="status"></p>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
