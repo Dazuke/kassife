@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isEditor() {
+      return request.auth != null && request.auth.token.role == 'editor';
+    }
+
+    // Public views are sanitized projections, not the source-of-truth documents.
+    match /publicStudents/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /publicPayments/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /publicTransactions/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /publicReports/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /publicPeriods/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /publicDashboard/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Private source-of-truth collections. Writes happen only from trusted Admin SDK functions.
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+    match /students/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+    match /periods/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+    match /payments/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+    match /transactions/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+    match /monthlyReports/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+    match /auditLogs/{id} {
+      allow read: if isEditor();
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
