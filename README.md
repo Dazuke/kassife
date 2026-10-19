@@ -78,3 +78,13 @@ Function `openNewMonth` dijadwalkan pada pukul 00:00 tanggal 1, zona waktu Asia/
 
 ## Data publik
 Link publik berarti siapa pun yang memiliki URL dapat melihat nama dan status pembayaran yang dipublikasikan. Dapatkan persetujuan kelas dan minimalkan data yang dibuka. Security Rules tidak menyamarkan field dari dokumen publik: jangan taruh email, nomor telepon, bukti transfer, atau catatan privat di dokumen `public*`.
+
+## Versi tampilan preview
+
+- `public/index.html` adalah tampilan demo yang disamakan dengan preview KasKelas (Dashboard, Pembayaran, Transaksi, Laporan, ekspor CSV/PDF, QRIS dan tunai). Data di halaman ini hanya contoh dan perubahan tidak tersimpan permanen.
+- `public/firebase-connected.html` adalah halaman lama yang terhubung ke kode Firebase melalui `public/app.js`. Untuk menggunakannya, konfigurasi Firebase dan deploy backend harus sudah disiapkan.
+- `public/qris.jpg` adalah gambar penanda, bukan QRIS pembayaran. Ganti file itu dengan QRIS asli bendahara dan pertahankan nama `qris.jpg`.
+
+## Email bendahara
+
+Email bendahara belum ditentukan di project ini. Gunakan email milik bendahara yang benar-benar bisa diakses, lalu buat akun di Firebase Authentication (Email/Password) dan berikan role editor melalui langkah Admin SDK di panduan. Jangan gunakan email contoh atau memasukkan kata sandi ke source code.
