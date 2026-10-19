@@ -1,122 +1,42 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173b32">
-  <title>KasKelas — Kas Kelas</title>
-  <link rel="stylesheet" href="./style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KasKelas — Dashboard Kas</title>
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#f5f7fb,#0b1220);--panel:light-dark(#fff,#121c2e);--panel2:light-dark(#f8fafc,#18243a);--text:light-dark(#172033,#eef4ff);--muted:light-dark(#65718a,#9baac4);--line:light-dark(#e4e9f2,#2a3850);--brand:light-dark(#365cf5,#91a7ff);--brandText:#fff;--green:light-dark(#0d966b,#5ee0b3);--red:light-dark(#d84d61,#ff9aa8);--shadow:0 10px 30px rgba(25,45,90,.06)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{min-height:100vh;background:var(--bg);padding:24px;max-width:1440px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:#365cf5;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:800}.brand h1{font-size:21px;line-height:1.2;margin:0;letter-spacing:-.5px}.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}.top-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.pill{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:8px 12px;font-size:12px;color:var(--muted)}button,select,input{font:inherit}button{border:0;border-radius:10px;padding:10px 14px;background:var(--brand);color:var(--brandText);font-weight:650;cursor:pointer}button.secondary{background:var(--panel);border:1px solid var(--line);color:var(--text)}button.danger{background:transparent;border:1px solid var(--line);color:var(--red)}button:disabled{opacity:.4;cursor:not-allowed}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px}.side{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:12px;height:max-content;position:sticky;top:16px}.nav{width:100%;text-align:left;display:flex;align-items:center;gap:11px;margin:3px 0;background:transparent;color:var(--muted);font-weight:550}.nav.active{background:light-dark(#eef2ff,#202f52);color:var(--brand)}.side-note{border-top:1px solid var(--line);margin-top:14px;padding:14px 8px 4px;color:var(--muted);font-size:12px}.main{min-width:0}.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}.heading h2{margin:0;font-size:26px;letter-spacing:-.8px}.heading p{margin:5px 0 0;color:var(--muted)}.period{padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);min-width:0}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px;gap:6px}.stat-icon{width:34px;height:34px;border-radius:11px;background:light-dark(#edf1ff,#202f52);display:grid;place-items:center;color:var(--brand);font-size:17px}.stat-value{font-size:25px;font-weight:760;letter-spacing:-.7px;margin:12px 0 4px;overflow-wrap:anywhere}.stat-foot{font-size:12px;color:var(--muted)}.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:16px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.section-head h3{font-size:16px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:4px 0 0}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;padding:11px 10px;border-bottom:1px solid var(--line)}td{padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}tbody tr:last-child td{border-bottom:0}.student{display:flex;align-items:center;gap:10px}.avatar{width:32px;height:32px;border-radius:10px;background:light-dark(#eaf0ff,#253552);color:var(--brand);display:grid;place-items:center;font-weight:750;font-size:12px}.muted{color:var(--muted)}.status{display:inline-flex;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:700}.paid{color:var(--green);background:light-dark(#e5f8f0,#153b36)}.unpaid{color:light-dark(#b77916,#f5c76c);background:light-dark(#fff4d8,#43371e)}.mini-btn{padding:6px 9px;font-size:11px;border-radius:8px}.progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:14px 0 8px}.progress span{display:block;height:100%;background:var(--brand);border-radius:999px;width:83.33%}.split{display:flex;justify-content:space-between;gap:12px;font-size:13px}.transaction{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--line)}.transaction:last-child{border-bottom:0}.txicon{width:36px;height:36px;border-radius:12px;background:light-dark(#e5f8f0,#153b36);display:grid;place-items:center;color:var(--green)}.txicon.out{background:light-dark(#fff0f1,#432431);color:var(--red)}.txinfo{flex:1;min-width:0}.txinfo strong{display:block;font-size:13px}.txinfo span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.amount{font-weight:750;font-size:13px;white-space:nowrap}.amount.in{color:var(--green)}.amount.out{color:var(--red)}.bottom{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.notice{border:1px solid light-dark(#dbe5ff,#30456d);background:light-dark(#f0f4ff,#15233d);border-radius:14px;padding:14px 16px;display:flex;gap:12px;font-size:12px;color:var(--muted)}.notice strong{color:var(--text);display:block;margin-bottom:3px;font-size:13px}.notice .nicon{font-size:20px}.footer{color:var(--muted);font-size:11px;margin-top:18px;text-align:center}.hidden{display:none!important}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.empty{text-align:center;padding:30px;color:var(--muted)}@media(max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.side{position:static;display:flex;gap:5px;overflow:auto}.nav{white-space:nowrap;width:auto;flex:0 0 auto}.side-note{display:none}}@media(max-width:620px){.app{padding:14px}.top{align-items:flex-start}.top-actions{justify-content:flex-end}.brand p{max-width:150px}.pill{display:none}.heading h2{font-size:23px}.cards{gap:9px}.card{padding:13px}.stat-value{font-size:21px}.bottom{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.side{padding:7px}.nav{font-size:12px;padding:9px}}
+.payment-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.pay-option{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--panel2)}.pay-option h4{margin:0 0 6px;font-size:15px}.pay-option p{font-size:12px;color:var(--muted);margin:0 0 12px}.qris-frame{min-height:210px;border:1px dashed var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px;text-align:center;background:var(--panel)}.qris-frame img{max-width:220px;width:100%;max-height:260px;object-fit:contain;border-radius:8px}.qris-placeholder{width:140px;height:140px;border:8px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--muted);font-size:44px}.field input[type=file]{padding:8px}.pay-hint{font-size:12px;color:var(--muted);margin-top:10px}.pay-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}@media(max-width:620px){.payment-options{grid-template-columns:1fr}}
+</style>
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="#"><span class="brand-mark">K</span><span>KasKelas<small>TRANSPARANSI KAS KELAS</small></span></a>
-    <div class="top-actions">
-      <span id="periodLabel" class="period-pill">Periode —</span>
-      <button id="loginOpen" class="btn btn-light">Login bendahara</button>
-      <button id="logoutBtn" class="btn btn-light hidden">Keluar</button>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">LAPORAN KEUANGAN KELAS</p>
-        <h1>Kas kelas, lebih <span>terbuka.</span></h1>
-        <p class="hero-copy">Pantau saldo, pembayaran iuran, dan riwayat transaksi dalam satu tempat.</p>
-      </div>
-      <div class="hero-icon" aria-hidden="true">↗</div>
-    </section>
-
-    <section class="stats-grid" aria-label="Ringkasan kas">
-      <article class="stat-card stat-primary">
-        <span class="stat-label">Saldo kas saat ini</span>
-        <strong id="balanceValue">Rp0</strong>
-        <span class="stat-note">Saldo akhir periode terpilih</span>
-      </article>
-      <article class="stat-card">
-        <span class="stat-label">Total pemasukan</span>
-        <strong id="incomeValue">Rp0</strong>
-        <span class="stat-note">Periode terpilih</span>
-      </article>
-      <article class="stat-card">
-        <span class="stat-label">Total pengeluaran</span>
-        <strong id="expenseValue">Rp0</strong>
-        <span class="stat-note">Periode terpilih</span>
-      </article>
-      <article class="stat-card">
-        <span class="stat-label">Pembayaran</span>
-        <strong id="paymentCount">0 / 0</strong>
-        <span id="paymentNote" class="stat-note">Siswa sudah membayar</span>
-      </article>
-    </section>
-
-    <section class="section-heading">
-      <div><p class="eyebrow">MONITORING</p><h2>Status pembayaran</h2></div>
-      <div class="filters">
-        <label class="sr-only" for="periodSelect">Pilih periode</label>
-        <select id="periodSelect" aria-label="Pilih periode"></select>
-        <button id="exportCsvBtn" class="btn btn-outline">Ekspor Excel (CSV)</button>
-        <button id="printBtn" class="btn btn-outline">Cetak / PDF</button>
-      </div>
-    </section>
-
-    <section class="content-grid">
-      <article class="panel">
-        <div class="panel-heading">
-          <div><h3>Daftar siswa</h3><p>Data yang ditampilkan hanya informasi publik kelas.</p></div>
-          <span id="viewerBadge" class="role-badge">VIEWER</span>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Nama siswa</th><th>Iuran</th><th>Status</th><th>Tanggal bayar</th></tr></thead>
-            <tbody id="studentsTable"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody>
-          </table>
-        </div>
-        <p id="dataMessage" class="data-message" role="status">Menghubungkan ke Firebase…</p>
-      </article>
-
-      <aside class="panel">
-        <div class="panel-heading"><div><h3>Riwayat transaksi</h3><p>Pemasukan dan pengeluaran bulan ini.</p></div></div>
-        <div id="transactionsList" class="transactions-list"><p class="empty">Memuat transaksi…</p></div>
-      </aside>
-    </section>
-
-    <section id="editorPanel" class="panel editor-panel hidden">
-      <div class="panel-heading"><div><p class="eyebrow">AREA BENDahara</p><h2>Kelola kas</h2><p>Perubahan diproses oleh Cloud Functions yang memeriksa izin editor.</p></div><span class="role-badge role-editor">EDITOR AKTIF</span></div>
-      <div class="forms-grid">
-        <form id="paymentForm" class="form-card">
-          <h3>Catat pembayaran</h3>
-          <label for="studentSelect">Siswa</label><select id="studentSelect" required></select>
-          <label for="paymentAmount">Nominal (Rp)</label><input id="paymentAmount" type="number" min="1" step="1" required>
-          <label for="paymentDate">Tanggal bayar</label><input id="paymentDate" type="date" required>
-          <button class="btn btn-primary" type="submit">Simpan pembayaran</button>
-        </form>
-        <form id="transactionForm" class="form-card">
-          <h3>Tambah transaksi</h3>
-          <label for="transactionType">Jenis transaksi</label><select id="transactionType"><option value="expense">Pengeluaran</option><option value="income">Pemasukan lain</option></select>
-          <label for="transactionAmount">Nominal (Rp)</label><input id="transactionAmount" type="number" min="1" step="1" required>
-          <label for="transactionDescription">Keterangan</label><input id="transactionDescription" type="text" maxlength="160" placeholder="Contoh: beli spidol" required>
-          <button class="btn btn-primary" type="submit">Simpan transaksi</button>
-        </form>
-      </div>
-      <p class="security-note">Keamanan: tombol editor hanya muncul setelah login, tetapi izin sebenarnya tetap ditegakkan di server dan Firestore Rules.</p>
-    </section>
-
-    <footer><span>KasKelas · Transparan dan tertib</span><span>Jangan masukkan data pribadi yang tidak diperlukan.</span></footer>
-  </main>
-
-  <dialog id="loginDialog" class="login-dialog">
-    <form id="loginForm" method="dialog">
-      <button id="loginClose" class="dialog-close" type="button" aria-label="Tutup">×</button>
-      <p class="eyebrow">AKSES TERBATAS</p><h2>Login bendahara</h2>
-      <p class="muted">Gunakan akun yang sudah dibuat oleh admin. Pendaftaran publik tidak tersedia.</p>
-      <label for="email">Email</label><input id="email" type="email" autocomplete="username" required>
-      <label for="password">Kata sandi</label><input id="password" type="password" autocomplete="current-password" required>
-      <button class="btn btn-primary full-width" type="submit">Login</button>
-      <p id="loginMessage" class="form-message" role="status"></p>
-    </form>
-  </dialog>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.js"></script>
-</body>
-</html>
+<body><div class="app" id="app">
+<header class="top"><div class="brand"><div class="logo">K</div><div><h1>KasKelas</h1><p>Transparan, rapi, dan mudah dipantau</p></div></div><div class="top-actions"><span class="pill" id="rolePill">Mode demo · Viewer</span><button class="secondary" id="exportCsv">↓ Ekspor CSV</button><button id="toggleRole">Lihat mode bendahara</button></div></header>
+<div class="layout"><aside class="side"><button class="nav active" data-view="dashboard">▦　Dashboard</button><button class="nav" data-view="payments">☷　Pembayaran</button><button class="nav" data-view="transactions">↕　Transaksi</button><button class="nav" data-view="reports">▤　Laporan bulanan</button><div class="side-note">🔒 Data contoh untuk pratinjau. Belum terhubung ke Firebase.</div></aside>
+<main class="main"><div class="heading"><div><h2 id="pageTitle">Ringkasan kas kelas</h2><p id="pageSub">Pantau pembayaran dan arus kas dalam satu tempat.</p></div><select class="period" id="period"><option value="2026-10">Oktober 2026</option><option value="2026-09">September 2026</option><option value="2026-08">Agustus 2026</option></select></div>
+<section id="dashboardView"><div class="cards"><article class="card"><div class="stat-top"><span>Saldo kas saat ini</span><span class="stat-icon">◈</span></div><div class="stat-value" id="balance">Rp725.000</div><div class="stat-foot">Saldo akhir periode terpilih</div></article><article class="card"><div class="stat-top"><span>Total pemasukan</span><span class="stat-icon">↙</span></div><div class="stat-value" id="income">Rp300.000</div><div class="stat-foot">Termasuk iuran siswa</div></article><article class="card"><div class="stat-top"><span>Total pengeluaran</span><span class="stat-icon">↗</span></div><div class="stat-value" id="expense">Rp75.000</div><div class="stat-foot">Pengeluaran tercatat</div></article><article class="card"><div class="stat-top"><span>Pembayaran iuran</span><span class="stat-icon">✓</span></div><div class="stat-value" id="paidCount">25/30</div><div class="stat-foot" id="paidFoot">83% siswa sudah bayar</div></article></div>
+<div class="two"><article class="card"><div class="section-head"><div><h3>Status pembayaran</h3><p>Daftar iuran bulan ini</p></div><button class="secondary mini-btn" data-goto="payments">Lihat semua</button></div><div class="progress"><span id="progress"></span></div><div class="split"><span class="muted" id="progressLabel">25 dari 30 siswa sudah membayar</span><strong id="progressPct">83%</strong></div><div class="table-wrap"><table><thead><tr><th>Nama siswa</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="studentRows"></tbody></table></div></article>
+<article class="card"><div class="section-head"><div><h3>Transaksi terbaru</h3><p>Aktivitas kas terakhir</p></div><button class="secondary mini-btn" data-goto="transactions">Semua</button></div><div id="recentTransactions"></div></article></div>
+<div class="bottom"><div class="notice"><div class="nicon">🔐</div><div><strong>Keamanan jadi prioritas</strong>Dalam versi Firebase, siswa hanya membaca data publik. Semua perubahan kas akan divalidasi di server dan ditolak untuk akun tanpa izin.</div></div><div class="notice"><div class="nicon">🗓️</div><div><strong>Arsip tidak ikut terhapus</strong>Reset bulanan hanya membuka periode baru. Saldo dan riwayat transaksi bulan sebelumnya tetap tersimpan.</div></div></div></section>
+<section id="paymentsView" class="hidden"><article class="card"><div class="section-head"><div><h3>Daftar pembayaran</h3><p>Data contoh · nominal iuran Rp10.000</p></div><button id="addStudent" class="editorOnly">+ Tambah siswa</button></div><div class="table-wrap"><table><thead><tr><th>Nama siswa</th><th>Nominal</th><th>Status</th><th>Tanggal bayar</th><th>Aksi</th></tr></thead><tbody id="allStudentRows"></tbody></table></div></article><article class="card" style="margin-top:16px"><div class="section-head"><div><h3>Metode pembayaran</h3><p>Pilih cara membayar iuran kas kelas.</p></div><span class="status unpaid">Ganti file public/qris.jpg</span></div><div class="payment-options"><div class="pay-option"><h4>▦ Bayar dengan QRIS</h4><p>Scan kode QRIS bendahara melalui aplikasi mobile banking atau e-wallet yang mendukung QRIS.</p><div class="qris-frame"><img id="qrisImage" src="qris.jpg" alt="QRIS pembayaran kas kelas" onerror="this.style.display='none';document.getElementById('qrisPlaceholder').style.display='grid';"><div id="qrisPlaceholder" class="qris-placeholder" style="display:none">▦</div><strong id="qrisLabel">QRIS KasKelas</strong><span id="qrisCaption" class="muted">Ganti file public/qris.jpg dengan gambar QRIS asli milik bendahara.</span></div><p class="pay-hint">Letakkan gambar QRIS bernama <strong>qris.jpg</strong> di folder <strong>public/</strong>. File akan tampil otomatis saat website dibuka.</p></div><div class="pay-option"><h4>💵 Bayar tunai</h4><p>Untuk siswa yang membayar langsung kepada bendahara.</p><div class="qris-frame"><div class="qris-placeholder">Rp</div><strong>Pembayaran tunai</strong><span class="muted">Nominal iuran per bulan</span><strong style="font-size:24px;color:var(--brand)">Rp10.000</strong></div><div class="pay-hint">Serahkan uang kepada bendahara kelas. Status pembayaran diperbarui setelah bendahara menerima dan mencatat uang.</div><div class="pay-actions"><button class="secondary" id="cashInstructions">Lihat instruksi</button></div><p id="cashMessage" class="pay-hint hidden">Siapkan uang tunai Rp10.000 dan sampaikan nama lengkap serta bulan iuran kepada bendahara. Jangan tandai lunas sebelum uang diterima.</p></div></div></article></section>
+<section id="transactionsView" class="hidden"><article class="card"><div class="section-head"><div><h3>Riwayat transaksi</h3><p>Semua transaksi pada periode terpilih</p></div><button id="addTransaction" class="editorOnly">+ Catat transaksi</button></div><div id="allTransactions"></div></article></section>
+<section id="reportsView" class="hidden"><article class="card"><div class="section-head"><div><h3>Laporan bulanan</h3><p>Ringkasan yang dapat diekspor</p></div><div class="actions" style="margin:0"><button class="secondary" id="reportCsv">Unduh CSV</button><button class="secondary" id="printReport">Cetak / Simpan PDF</button></div></div><div id="reportContent"></div></article></section>
+<div class="footer">KasKelas Preview · Data ilustrasi · Tidak menyimpan data secara permanen</div></main></div>
+<div id="modal" class="hidden" style="position:fixed;inset:0;background:#07101dcc;display:grid;place-items:center;padding:18px;z-index:5"><div class="card" style="width:min(500px,100%);max-height:90vh;overflow:auto"><div class="section-head"><h3 id="modalTitle">Form</h3><button class="secondary" id="closeModal">✕</button></div><form id="modalForm"><div id="modalFields" class="form-grid"></div><div class="actions"><button type="submit">Simpan (demo)</button><button type="button" class="secondary" id="cancelModal">Batal</button></div></form></div></div>
+</div><script>
+const students=[
+ {id:1,name:'Andi Pratama',paid:true,date:'01 Okt 2026'}, {id:2,name:'Bunga Putri',paid:true,date:'02 Okt 2026'}, {id:3,name:'Citra Maharani',paid:true,date:'02 Okt 2026'}, {id:4,name:'Dimas Saputra',paid:false,date:'—'}, {id:5,name:'Eka Ramadhan',paid:true,date:'03 Okt 2026'}, {id:6,name:'Fajar Hidayat',paid:false,date:'—'}, {id:7,name:'Gita Lestari',paid:true,date:'04 Okt 2026'}, {id:8,name:'Hana Safitri',paid:true,date:'04 Okt 2026'}, {id:9,name:'Ilham Akbar',paid:true,date:'05 Okt 2026'}, {id:10,name:'Jihan Aulia',paid:false,date:'—'}, {id:11,name:'Kevin Maulana',paid:true,date:'06 Okt 2026'}, {id:12,name:'Laras Wati',paid:true,date:'06 Okt 2026'}, {id:13,name:'Miko Pradana',paid:true,date:'07 Okt 2026'}, {id:14,name:'Nadia Putri',paid:true,date:'07 Okt 2026'}, {id:15,name:'Oki Firmansyah',paid:true,date:'08 Okt 2026'}, {id:16,name:'Putri Amelia',paid:true,date:'08 Okt 2026'}, {id:17,name:'Qori Nabila',paid:true,date:'09 Okt 2026'}, {id:18,name:'Rafi Setiawan',paid:true,date:'09 Okt 2026'}, {id:19,name:'Salsa Aprilia',paid:false,date:'—'}, {id:20,name:'Tio Nugraha',paid:true,date:'10 Okt 2026'}, {id:21,name:'Umar Farhan',paid:true,date:'10 Okt 2026'}, {id:22,name:'Vina Oktavia',paid:true,date:'11 Okt 2026'}, {id:23,name:'Wahyu Kurnia',paid:true,date:'11 Okt 2026'}, {id:24,name:'Yuni Kartika',paid:true,date:'12 Okt 2026'}, {id:25,name:'Zaki Fadillah',paid:false,date:'—'}, {id:26,name:'Alya Zahra',paid:true,date:'13 Okt 2026'}, {id:27,name:'Bayu Aji',paid:true,date:'13 Okt 2026'}, {id:28,name:'Dewi Anggraini',paid:true,date:'14 Okt 2026'}, {id:29,name:'Farhan Rizky',paid:true,date:'14 Okt 2026'}, {id:30,name:'Nisa Rahma',paid:true,date:'15 Okt 2026'}
+];
+const tx=[{date:'15 Okt 2026',type:'income',description:'Iuran kas — Nisa Rahma',amount:10000},{date:'14 Okt 2026',type:'expense',description:'Alat kebersihan kelas',amount:45000},{date:'14 Okt 2026',type:'income',description:'Iuran kas — Dewi Anggraini',amount:10000},{date:'13 Okt 2026',type:'income',description:'Iuran kas — Bayu Aji',amount:10000},{date:'12 Okt 2026',type:'expense',description:'Spidol dan penghapus',amount:30000},{date:'12 Okt 2026',type:'income',description:'Iuran kas — Yuni Kartika',amount:10000}];
+let editor=false,view='dashboard',nextId=31;const fee=10000;const fmt=n=>'Rp'+Number(n).toLocaleString('id-ID');const el=id=>document.getElementById(id);const initials=n=>n.split(' ').slice(0,2).map(x=>x[0]).join('').toUpperCase();
+function renderStudents(target,limit){const list=limit?students.slice(0,limit):students;el(target).innerHTML=list.map(s=>`<tr><td><div class="student"><span class="avatar">${initials(s.name)}</span><strong>${esc(s.name)}</strong></div></td>${target==='allStudentRows'?`<td>${fmt(fee)}</td>`:''}<td><span class="status ${s.paid?'paid':'unpaid'}">${s.paid?'Lunas':'Belum bayar'}</span></td>${target==='allStudentRows'?`<td>${s.date}</td>`:''}<td>${editor?`<button class="secondary mini-btn" data-toggle="${s.id}">${s.paid?'Batalkan':'Tandai lunas'}</button>`:'<span class="muted">—</span>'}</td></tr>`).join('');document.querySelectorAll('[data-toggle]').forEach(b=>b.onclick=()=>togglePaid(Number(b.dataset.toggle)));}
+function renderTx(target,limit){const list=limit?tx.slice(0,limit):tx;el(target).innerHTML=list.length?list.map(t=>`<div class="transaction"><div class="txicon ${t.type==='expense'?'out':''}">${t.type==='income'?'↙':'↗'}</div><div class="txinfo"><strong>${esc(t.description)}</strong><span>${t.date} · ${t.type==='income'?'Pemasukan':'Pengeluaran'}</span></div><div class="amount ${t.type==='income'?'in':'out'}">${t.type==='income'?'+':'−'}${fmt(t.amount)}</div></div>`).join(''):'<div class="empty">Belum ada transaksi.</div>';}
+function render(){const paid=students.filter(s=>s.paid).length;const income=students.filter(s=>s.paid).length*fee;const expense=tx.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0);const opening=500000;const extraIncome=tx.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0);const balance=opening+Math.max(0,income-extraIncome)+extraIncome-expense;el('balance').textContent=fmt(balance);el('income').textContent=fmt(income);el('expense').textContent=fmt(expense);el('paidCount').textContent=`${paid}/${students.length}`;el('paidFoot').textContent=`${Math.round(paid/students.length*100)}% siswa sudah bayar`;el('progress').style.width=(paid/students.length*100)+'%';el('progressLabel').textContent=`${paid} dari ${students.length} siswa sudah membayar`;el('progressPct').textContent=Math.round(paid/students.length*100)+'%';renderStudents('studentRows',5);renderStudents('allStudentRows');renderTx('recentTransactions',4);renderTx('allTransactions');el('rolePill').textContent='Mode demo · '+(editor?'Bendahara':'Viewer');el('toggleRole').textContent=editor?'Kembali ke viewer':'Lihat mode bendahara';document.querySelectorAll('.editorOnly').forEach(b=>b.classList.toggle('hidden',!editor));el('reportContent').innerHTML=`<div class="cards" style="margin-top:10px"><div class="card"><div class="stat-top">Saldo awal</div><div class="stat-value">${fmt(opening)}</div></div><div class="card"><div class="stat-top">Pemasukan</div><div class="stat-value">${fmt(income)}</div></div><div class="card"><div class="stat-top">Pengeluaran</div><div class="stat-value">${fmt(expense)}</div></div><div class="card"><div class="stat-top">Saldo akhir</div><div class="stat-value">${fmt(balance)}</div></div></div><p class="muted">Laporan ${el('period').selectedOptions[0].text}. Data ini hanya contoh untuk menguji tampilan.</p>`;}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function setView(v){view=v;['dashboard','payments','transactions','reports'].forEach(x=>el(x+'View').classList.toggle('hidden',x!==v));document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===v));const names={dashboard:['Ringkasan kas kelas','Pantau pembayaran dan arus kas dalam satu tempat.'],payments:['Pembayaran siswa','Periksa status iuran per siswa.'],transactions:['Riwayat transaksi','Pemasukan dan pengeluaran kas kelas.'],reports:['Laporan bulanan','Ringkasan saldo dan aktivitas kas.']};el('pageTitle').textContent=names[v][0];el('pageSub').textContent=names[v][1];}
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>setView(b.dataset.view));document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>setView(b.dataset.goto));el('toggleRole').onclick=()=>{editor=!editor;render();};el('period').onchange=()=>{const isOct=el('period').value==='2026-10';students.forEach(s=>{s.paid=isOct?s.id!==4&&s.id!==6&&s.id!==10&&s.id!==19&&s.id!==25:s.id%3!==0;});render();};
+function togglePaid(id){if(!editor)return;const s=students.find(s=>s.id===id);if(!s)return;s.paid=!s.paid;s.date=s.paid?'18 Okt 2026':'—';if(s.paid)tx.unshift({date:'18 Okt 2026',type:'income',description:'Iuran kas — '+s.name,amount:fee});else tx.unshift({date:'18 Okt 2026',type:'expense',description:'Koreksi demo pembayaran — '+s.name,amount:fee});render();}
+function openModal(title,fields,submit){if(!editor)return;el('modalTitle').textContent=title;el('modalFields').innerHTML=fields;el('modal').classList.remove('hidden');el('modalForm').onsubmit=e=>{e.preventDefault();submit(new FormData(e.target));el('modal').classList.add('hidden');e.target.reset();render();};}function closeModal(){el('modal').classList.add('hidden')}el('closeModal').onclick=closeModal;el('cancelModal').onclick=closeModal;
+el('addStudent').onclick=()=>openModal('Tambah siswa','<label class="field" style="grid-column:1/-1">Nama siswa<input name="name" required maxlength="80" placeholder="Nama lengkap"></label>',f=>{students.push({id:nextId++,name:f.get('name').trim(),paid:false,date:'—'});});
+el('addTransaction').onclick=()=>openModal('Catat transaksi','<label class="field">Jenis<select name="type"><option value="income">Pemasukan</option><option value="expense">Pengeluaran</option></select></label><label class="field">Nominal (Rp)<input name="amount" type="number" min="1" max="100000000" required></label><label class="field" style="grid-column:1/-1">Keterangan<input name="description" required maxlength="120" placeholder="Contoh: beli alat tulis"></label>',f=>{tx.unshift({date:'18 Okt 2026',type:f.get('type'),description:f.get('description').trim(),amount:Number(f.get('amount'))});});
+function exportCsv(){const rows=[['Tanggal','Nama/Deskripsi','Jenis','Nominal','Status'],...students.map(s=>['',s.name,'Iuran',fee,s.paid?'Lunas':'Belum bayar']),...tx.map(t=>[t.date,t.description,t.type==='income'?'Pemasukan':'Pengeluaran',t.amount,''])];const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));a.download='laporan-kas-kelas-demo.csv';a.click();URL.revokeObjectURL(a.href);}el('exportCsv').onclick=exportCsv;el('reportCsv').onclick=exportCsv;el('printReport').onclick=()=>window.print();
+el('cashInstructions').onclick=()=>el('cashMessage').classList.toggle('hidden');render();
+</script></body></html>
